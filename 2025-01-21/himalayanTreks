@@ -323,8 +323,28 @@ ggsave(trekByPeak,
 #
 # Out of the 36 fatal expeditions across the Himalayas between the years 2020-2024,
 # 21 were to the Everest peak.
-#
-#
+#Jyothi's edits
+## Create a mapping of encoded peak numbers to actual peak names
+# peak_names <- c("1" = "X", "2" = "Y", "3" = "Z",
+              AND SO ON..)
+
+# Visualization
+fatalTrekByPeak <- ggplot(fatal_peaks, aes(x = as.factor(PKNAME))) +
+  geom_bar(fill = "#0099F8", color = "black") +
+  scale_x_discrete(labels = peak_names) +  # Replace encoded numbers with peak names
+  labs(
+    title = "Fatal Expeditions by Peak",
+    subtitle = "Top 10 Most Popular Peaks (2020–2024)",
+    x = "Himalayan Peak",
+    y = "Number of Fatal Expeditions",
+    caption = "Source: The Himalayan Database. \nALT TEXT: A bar chart showing fatal expeditions by peak. Everest has the highest count."
+  ) +
+  theme_minimal(base_size = 14) +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    plot.title = element_text(face = "bold"),
+    plot.subtitle = element_text(size = 12, color = "gray40")
+  )
 #
 #
 # The Mountaineering Disaster Relief and Education Support (MDRES)
